@@ -15,3 +15,38 @@ const closeNav = () => {
 };
 
 closeNavBtn.addEventListener("click", closeNav);
+
+// Close nav meny when clicked on
+if (window.innerWidth < 1024) {
+  document.querySelectorAll("#nav__items li a").forEach((navItem) => {
+    navItem.addEventListener("click", () => {
+      closeNav();
+    });
+  });
+}
+
+// Change navbar
+window.addEventListener("scroll", () => {
+  document
+    .querySelector("nav")
+    .classList.toggle("window-scroll", window.scrollY > 0);
+});
+
+// NOT MY CODE
+var swiper = new Swiper(".mySwiper", {
+  slidesPerView: 1,
+  spaceBetween: 30,
+  pagination: {
+    el: ".swiper-pagination",
+    clickable: true,
+  },
+
+  breakpoints: {
+    600: {
+      slidesPerView: 2,
+    },
+    1024: {
+      slidesPerView: 3,
+    },
+  },
+});
